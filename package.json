@@ -1,0 +1,27 @@
+{
+  "name": "express-mongo",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.14",
+    "morgan": "^1.9.0",
+    "winston": "^3.1.0"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "NODE_ENV=development PORT=65332 nodemon server/index.js"
+  },
+  "standard": {
+    "globals": [
+      "React",
+      "FormData"
+    ]
+  },
+  "devDependencies": {
+    "faker": "^4.1.0"
+  }
+}

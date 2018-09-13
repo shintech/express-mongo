@@ -1,0 +1,26 @@
+version: '3'
+
+services: 
+  express-mongo:
+    build: .
+    image: shintech/express-postgres:latest
+    container_name: express-postgres
+    network_mode: bridge
+    env_file:
+      - ./next.env
+    ports:
+      - "8000:8000"
+    restart: always
+    links:
+      - postgres
+    
+  # postgres:
+  #   build: ./database
+  #   image: shintech/blog-database:latest
+  #   container_name: postgres
+  #   network_mode: bridge
+  #   env_file:
+  #       - ./postgres.env
+  #   volumes:
+  #     - ./data/db:/var/lib/postgresql/data
+  #   restart: always
