@@ -16,11 +16,6 @@ const db = configDB({ logger })
 
 if (environment === 'development') app.use(morgan('dev'))
 
-app.use('/api/*', (req, res, next) => {
-  req.db = db
-  next()
-})
-
 app.use('/public', express.static(path.join(__dirname, '../public')))
   .use(bodyParser.urlencoded({ extended: true }))
   .use(bodyParser.json())

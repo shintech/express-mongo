@@ -16,6 +16,20 @@ module.exports = function ({ db }) {
 
         respond(res, 200, user)
       })
+    },
+
+    addUser: async (req, res) => {
+      const attrs = {
+        name: req.body.name,
+        email: req.body.email,
+        phone: req.body.phone
+      }
+      let user = new db.User(attrs)
+
+      user.save(err => {
+        if (err) return res.send(err)
+        res.send(user)
+      })
     }
   }
 }
