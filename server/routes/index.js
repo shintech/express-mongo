@@ -1,5 +1,5 @@
-const users = require('./users')
+const posts = require('./posts')
 
 module.exports = {
-  users: config => ({ ...users(config) })
+  posts: config => ({ ...posts(config) })
 }

@@ -2,12 +2,12 @@ const routes = require('./routes')
 const router = require('express').Router()
 
 module.exports = function (config) {
-  router.route('/users')
-    .get(routes.users(config).fetchAll)
-    .post(routes.users(config).addUser)
+  router.route('/posts')
+    .get(routes.posts(config).fetchAll)
+    .post(routes.posts(config).addPost)
 
-  router.route('/users/:id')
-    .get(routes.users(config).fetchOne)
+  router.route('/posts/:id')
+    .get(routes.posts(config).fetchOne)
 
   return router
 }
