@@ -10,10 +10,20 @@ const server = require('../server')({ logger, environment, port })
 chai.use(chaiHttp)
 const expect = chai.expect
 
-describe('clear data', () => {
+describe('INIT', () => {
   before(function (done) {
-    Post.collection.drop()
+    Post.collection.drop(err => { if (err.message === 'ns not found') return false })
     done()
+  })
+
+  it('should not contain data', done => {
+    chai.request(server)
+      .get('/api/posts')
+      .end(function (err, res) {
+        expect(err).to.be.null // eslint-disable-line
+        expect(res.body).to.be.empty // eslint-disable-line
+        done()
+      })
   })
 })
 
