@@ -1,6 +1,6 @@
 {
   "name": "express-mongo",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "node .",
-    "test": "USERS_URL=http://localhost:65330 POSTS_URL=http://localhost:65332  DEVICES_URL=http://localhost:65331 NODE_ENV=test PORT=65000 mocha test --exit -t 10000",
+    "test": "NODE_ENV=test PORT=65000 mocha test --exit -t 10000",
     "dev": "NODE_ENV=development PORT=65332 nodemon ."
   },
   "standard": {
