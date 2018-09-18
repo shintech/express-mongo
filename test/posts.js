@@ -14,7 +14,7 @@ const expect = chai.expect
 
 describe('INIT', () => {
   before(function (done) {
-    Post.collection.drop(err => { if (err.message === 'ns not found') return false })
+    Post.collection.drop(err => { if (err && (err.message === 'ns not found')) return false })
     done()
   })
 
