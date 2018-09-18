@@ -1,3 +1,5 @@
+/* eslint-env mocha  */
+
 const chai = require('chai')
 const chaiHttp = require('chai-http')
 var Post = require('../server/schemas/Post')
