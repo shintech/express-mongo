@@ -3,7 +3,11 @@
 const mongoose = require('mongoose')
 const faker = require('faker')
 let Post = require('./server/schemas/Post')
-let connectionString = process.env['DATABASE_URL'] || 'mongodb://localhost/api_development'
+
+const DB = process.env['MONGO_INITDB_DATABASE'] || 'api_test'
+const URL = process.env['MONGO_URL'] || 'localhost'
+
+let connectionString = `mongodb://${URL}/${DB}`
 
 function range (start, end) {
   if (start === end) return [start]

@@ -1,10 +1,10 @@
 let Post = require('./schemas/Post')
 const mongoose = require('mongoose')
 
-const DB = process.env['MONGO_INITDB_DATABASE']
-const URL = process.env['MONGO_URL']
+const DB = process.env['MONGO_INITDB_DATABASE'] || 'api_development'
+const URL = process.env['MONGO_URL'] || 'localhost'
 
-let connectionString = (process.env['MONGO_INITDB_DATABASE']) ? `mongodb://${URL}/${DB}` : 'mongodb://localhost/api_development'
+let connectionString = `mongodb://${URL}/${DB}`
 
 module.exports = ({ logger, environment }) => {
   mongoose.connect(connectionString, { useNewUrlParser: true }, function (err, res) {
