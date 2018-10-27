@@ -1,8 +1,10 @@
 const { respond } = require('../lib')
 
-module.exports = function ({ db }) {
+module.exports = function () {
   return {
     fetchAll: async (req, res) => {
+      const { db } = req
+
       db.Post.find(function (err, posts) {
         if (err) { return respond(res, 404, err) }
 
@@ -11,6 +13,8 @@ module.exports = function ({ db }) {
     },
 
     fetchOne: async (req, res) => {
+      const { db } = req
+
       db.Post.findOne({ _id: req.params.id }, function (err, post) {
         if (err) { return respond(res, 404, err) }
 
@@ -19,6 +23,8 @@ module.exports = function ({ db }) {
     },
 
     addPost: async (req, res) => {
+      const { db } = req
+
       const attrs = {
         name: req.body.name,
         email: req.body.email,
